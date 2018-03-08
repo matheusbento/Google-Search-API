@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google API</title>
+	<link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+</head>
+<body ng-app="GoogleApp" ng-controller="SearchController">
+<main>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<div class="jumbotron">
+					<form role="form">
+						<div class="form-group">
+						<label for="query">
+							Digite algo para pesquisar
+						</label>
+						<input type="busca" class="form-control" id="query" ng-model="text" />
+						</div>
+						<button ng-click="listar(text);" class="btn btn-success" >Pesquisar</button>
+					</form>
+					</div>
+				</div>
+				<div class="col-md-12" ng-if="items">
+					<div class="jumbotron">
+						<table class="table table-responsive">
+							<thead>
+								<th width="50%">Título</th>
+								<th>Link</th>
+							</thead>
+							<tbody ng-repeat="item in items">
+								<td>{{item.title}}</td>
+								<td><a href="{{item.url}}">{{item.url}}</a></td>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="Controllers/SearchController.js"></script>
+</body>
+</html>
